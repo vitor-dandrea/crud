@@ -22,9 +22,10 @@ if (isset($_GET['id'])) {
         // $stmt->execute([':motorista_id$motorista_id' => $motorista_id]);
 
         // Deletar da tabela `dim_motoristas`
-        $sqlMotoristas = "DELETE FROM dim_motoristas WHERE motorista_id$motorista_id = :motorista_id$motorista_id";
+        $sqlMotoristas = "DELETE FROM dim_motoristas WHERE motorista_id = :motorista_id";
         $stmt = $pdo->prepare($sqlMotoristas);
-        $stmt->execute([':motorista_id$motorista_id' => $motorista_id]);
+        $stmt->execute([':motorista_id' => $motorista_id]);
+
 
         header("Location: motoristas.php");
     } catch (Exception $e) {
