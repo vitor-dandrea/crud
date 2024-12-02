@@ -1,0 +1,184 @@
+/* Tema escuro */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #f1f1f1;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Formulário */
+form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro do formulário */
+    justify-content: center; /* Garante que o conteúdo se alinha ao centro */
+    width: 44%; /* A largura do formulário será ajustada */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form input {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 3px 0;
+    width: 70%; /* Ajuste a largura para um tamanho adequado */
+    border-radius: 4px;
+}
+
+/* Ajuste de botão */
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 50%; /* Ajuste a largura do botão para o mesmo tamanho dos inputs */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 250px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabela de Clientes */
+.clients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.clients-table th, .clients-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.clients-table th {
+    background-color: #1f1f1f;
+}
+
+.clients-table td {
+    background-color: #333;
+}
+
+.clients-table a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.clients-table a:hover {
+    text-decoration: underline;
+}
+
+.clients-table tr:nth-child(even) td {
+    background-color: #2c2c2c;
+}
+
+.clients-table tr:hover td {
+    background-color: #444;
+}
+
+.clients-table a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.clients-table a:hover {
+    opacity: 0.9;
+}
+
+/* Ajuste de Botões na Tabela */
+
+/* Botão Deletar */
+.clients-table a[href*="deletar_veiculo.php"] {
+    background-color: #e74c3c; /* Vermelho */
+    color: #fff;
+    margin-right: 10px; /* Adiciona espaço à direita */
+    padding: 6px 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botão Condições */
+.clients-table a[href*="condicoes.php"] {
+    background-color: #3498db; /* Azul */
+    color: #fff;
+    margin-left: 10px; /* Adiciona espaço à esquerda */
+    padding: 6px 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ajuste do Espaçamento Geral */
+.clients-table td a {
+    margin: 0 5px; /* Margem horizontal entre botões */
+    display: inline-block; /* Garante alinhamento correto */
+}
+
+/* Botões ao Passar o Mouse */
+.clients-table a[href*="deletar_veiculo.php"]:hover {
+    background-color: #c0392b; /* Vermelho mais escuro */
+}
+
+.clients-table a[href*="condicoes.php"]:hover {
+    background-color: #2980b9; /* Azul mais escuro */
+}
+
