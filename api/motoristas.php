@@ -104,7 +104,7 @@ $motoristas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $motorista['data_expiracao_licenca'] ?></td>
                         <td>
                             <a href="deletar_motoristas.php?id=<?= $motorista['motorista_id'] ?>">Deletar</a>
-                            <a href="condicoes.php?id=<?= $motorista['motorista_id'] ?>">Condições</a>
+                            
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -163,7 +163,7 @@ $despachos = $pdo->query("SELECT f.despacho_id, c.nome AS cliente, m.nome AS mot
                     echo "<td>" . $despacho['data_despacho'] . "</td>";
                     echo "<td>";
                     echo "<a href='deletar_despacho.php?despacho_id=" . $despacho['despacho_id'] . "' class='deletar' onclick='return confirm(\"Tem certeza que deseja deletar este despacho?\")'>Deletar</a>";
-                    echo "<a href='detalhes_despacho.php?despacho_id=" . $despacho['despacho_id'] . "' class='detalhes'>Detalhes</a>";
+
                     echo "</td>";
                     echo "</tr>";
                 }

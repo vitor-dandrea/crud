@@ -91,7 +91,7 @@ $rotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Origem</th>
                     <th>Destino</th>
                     <th>Distância (km)</th>
-                    <th>Capacidade (kg)</th>
+                    <th>Tempo Estimado</th>
                 
                 </tr>
             </thead>
@@ -105,7 +105,7 @@ $rotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $rota['tempo_viagem_estimado'] ?></td>
                         <td>
                             <a href="deletar_rota.php?id=<?= $rota['rota_id'] ?>">Deletar</a>
-                            <a href="condicoes.php?id=<?= $rota['rota_id'] ?>">Condições</a>
+                            
                         </td>
                     </tr>
                 <?php endforeach; ?>
