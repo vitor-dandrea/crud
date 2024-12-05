@@ -1,3 +1,4 @@
+<!--
 <?php
 require 'connection.php'; // Arquivo de conexão ao banco de dados
 
@@ -31,3 +32,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+->

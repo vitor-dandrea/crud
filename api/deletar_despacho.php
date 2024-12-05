@@ -16,12 +16,12 @@ if (isset($_GET['despacho_id'])) {
         // Inicia a transação para garantir que a exclusão nas tabelas relacionadas aconteça de forma segura
         $pdo->beginTransaction();
 
-        // Apagar o despacho na tabela fat_despacho
+        // Apaga o despacho na tabela fat_despacho
         $stmt = $pdo->prepare("DELETE FROM fat_despacho WHERE despacho_id = :despacho_id");
         $stmt->bindParam(':despacho_id', $despacho_id);
         $stmt->execute();
 
-        // Apagar o despacho na tabela dim_detalhes_despacho
+        // Apaga o despacho na tabela dim_detalhes_despacho
         $stmt = $pdo->prepare("DELETE FROM dim_detalhes_despacho WHERE despacho_id = :despacho_id");
         $stmt->bindParam(':despacho_id', $despacho_id);
         $stmt->execute();
@@ -29,8 +29,8 @@ if (isset($_GET['despacho_id'])) {
         // Commit da transação
         $pdo->commit();
 
-        // Redirecionar de volta para a página principal
-        header('Location: despacho.php'); // Substitua pelo nome correto do seu arquivo de listagem
+        // Redireciona de volta para a página principal
+        header('Location: despacho.php'); 
         exit();
 
     } catch (PDOException $e) {

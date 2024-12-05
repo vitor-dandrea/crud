@@ -16,6 +16,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $pdo->beginTransaction();
 
+        // Verificar se o veículo já existe em dim_veiculos
+        $checkVeiculo = "SELECT COUNT(*) FROM dim_veiculos WHERE veiculo_id = :veiculo_id";
+        $stmt = $pdo->prepare($checkVeiculo);
+        $stmt->execute([':veiculo_id' => $_POST['veiculo_id']]);
+        $exists = $stmt->fetchColumn();
+
+        if (!$exists) {
+            // Inserir em dim_veiculos
+            $sqlVeiculos = "INSERT INTO dim_veiculos (veiculo_id, placa, modelo, ano, capacidade_carga, tipo_veiculo)
+                            VALUES (:veiculo_id, :placa, :modelo, :ano, :capacidade_carga, :tipo_veiculo)";
+            $stmt = $pdo->prepare($sqlVeiculos);
+            $stmt->execute([
+                ':veiculo_id' => $_POST['veiculo_id'],
+                ':placa' => $_POST['placa'],
+                ':modelo' => $_POST['modelo'],
+                ':ano' => $_POST['ano'],
+                ':capacidade_carga' => $_POST['capacidade_carga'],
+                ':tipo_veiculo' => $_POST['tipo_veiculo']
+            ]);
+        }
+
         // Inserir em dim_condicoes_veiculo
         $sqlCondicoes = "INSERT INTO dim_condicoes_veiculo (veiculo_id, observacoes, data_oleo, data_inspecao_mecanica)
                          VALUES (:veiculo_id, :observacoes, :data_oleo, :data_inspecao)";
@@ -25,19 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':observacoes' => $_POST['observacoes'],
             ':data_oleo' => $_POST['data_oleo'],
             ':data_inspecao' => $_POST['data_inspecao']
-        ]);
-
-        // Inserir em dim_veiculos
-        $sqlVeiculos = "INSERT INTO dim_veiculos (veiculo_id, placa, modelo, ano, capacidade_carga, tipo_veiculo)
-                        VALUES (:veiculo_id, :placa, :modelo, :ano, :capacidade_carga, :tipo_veiculo)";
-        $stmt = $pdo->prepare($sqlVeiculos);
-        $stmt->execute([
-            ':veiculo_id' => $_POST['veiculo_id'],
-            ':placa' => $_POST['placa'],
-            ':modelo' => $_POST['modelo'],
-            ':ano' => $_POST['ano'],
-            ':capacidade_carga' => $_POST['capacidade_carga'],
-            ':tipo_veiculo' => $_POST['tipo_veiculo']
         ]);
 
         $pdo->commit();

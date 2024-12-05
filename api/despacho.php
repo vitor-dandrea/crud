@@ -1,7 +1,7 @@
 <?php
 // Conexão com o banco de dados
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=transportadoradb', 'root', ''); // Substitua pelo seu usuário e senha
+    $pdo = new PDO('mysql:host=localhost;dbname=transportadoradb', 'root', ''); // localhost: dispositivo local / root: usuário / '': senha
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Erro na conexão: " . $e->getMessage();
@@ -17,14 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $count = $stmt->fetchColumn();
 
-        // Se o despacho_id não existe, insira-o na tabela dim_detalhes_despacho
+        // Se o despacho_id não existe, insere na tabela dim_detalhes_despacho
         if ($count == 0) {
             $stmt = $pdo->prepare("INSERT INTO dim_detalhes_despacho (despacho_id) VALUES (:despacho_id)");
             $stmt->bindParam(':despacho_id', $_POST['despacho_id']);
             $stmt->execute();
         }
 
-        // Agora, insira o despacho na tabela fat_despacho
+        // Insere o despacho na tabela fat_despacho
         $stmt = $pdo->prepare("INSERT INTO fat_despacho (despacho_id, cliente_id, motorista_id, rota_id, veiculo_id, data_despacho)
                                 VALUES (:despacho_id, :cliente_id, :motorista_id, :rota_id, :veiculo_id, :data_despacho)");
 
