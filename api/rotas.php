@@ -73,7 +73,7 @@ $rotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <input type="text" name="origem" placeholder="Origem" required>
             <input type="text" name="destino" placeholder="Destino" required>
             <input type="number" name="distancia" placeholder="Distância (km)" required>
-            <input type="number" name="tempo_viagem_estimado" placeholder="Tempo Estimado" required>
+            <input type="number" name="tempo_viagem_estimado" placeholder="Tempo Estimado hh:mm:ss" required>
             <button type="submit">Adicionar Rota</button>
         </form>
 

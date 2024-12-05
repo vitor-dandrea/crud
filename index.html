@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transportadora - CRUD</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="api/despacho.php">Despacho</a></li>
-                <li><a href="api/clientes.php">Clientes</a></li>
-                <li><a href="api/motoristas.php">Motoristas</a></li>
-                <li><a href="api/rotas.php">Rotas</a></li>
-                <li><a href="api/veiculos.php">Veículos</a></li>
-                
-            </ul>
-        </nav>
+        <h1>Transportadora - CRUD</h1>
+        <div class="button-matrix">
+            <div class="button-container">
+                <button class="nav-button" onclick="location.href='api/clientes.php'">Clientes</button>
+                <button class="nav-button" onclick="location.href='api/motoristas.php'">Motoristas</button>
+            </div>
+            <button class="nav-button center-button" onclick="location.href='api/despacho.php'">Despacho</button>
+            <div class="button-container">
+                <button class="nav-button" onclick="location.href='api/rotas.php'">Rotas</button>
+                <button class="nav-button" onclick="location.href='api/veiculos.php'">Veículos</button>
+            </div>
+        </div>
     </header>
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
